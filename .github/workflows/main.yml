@@ -87,6 +87,9 @@ jobs:
           name: ui-bundle
           path: build/ui-bundle.zip
 
+      - name: Output artifact URL
+        run:  echo 'Artifact URL is ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts/${{ steps.artifact-upload-step.outputs.artifact-id }}'
+
   bundle-dev:
     runs-on: ubuntu-latest
     if: github.ref != 'refs/heads/main'
